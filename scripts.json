@@ -8,5 +8,11 @@
         "net"
       ]
     }
+  },
+  "watcher": {
+    "match": [
+      "app.ts",
+      "src/**/*.ts"
+    ]
   }
 }
