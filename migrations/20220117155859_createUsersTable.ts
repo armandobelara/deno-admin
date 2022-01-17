@@ -1,4 +1,4 @@
-import { Schema } from "https://deno.land/x/cotton@v0.7.2/mod.ts";
+import { Schema } from "https://deno.land/x/cotton@v0.7.5/mod.ts";
 
 export async function up(schema: Schema) {
   await schema.createTable('users', (table) => {

@@ -6,7 +6,8 @@
       "desc": "run my app.ts file",
       "allow": [
         "net"
-      ]
+      ],
+      "tsconfig": "tsconfig.json"
     }
   },
   "watcher": {
