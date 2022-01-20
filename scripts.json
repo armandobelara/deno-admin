@@ -5,8 +5,12 @@
       "cmd": "deno run app.ts",
       "desc": "run my app.ts file",
       "allow": [
-        "net"
+        "net",
+        "env"
       ],
+      "env": {
+        "key": "secret"
+      },
       "tsconfig": "tsconfig.json",
       "unstable": true
     }
