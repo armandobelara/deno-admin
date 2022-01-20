@@ -15,8 +15,9 @@ export const Register = async ({request, response}: RouterContext) => {
     user.password = await hash(body.password);
   
     const userRepository = new UserRepository;
+    const {password, ...result} = await userRepository.create(user);
   
-    response.body = await userRepository.create(user);
+    response.body = result;
   } catch (e) {
     console.log(e);
     response.status = 400
@@ -57,4 +58,14 @@ export const Login = async ({request, response, cookies}: RouterContext) => {
     console.log(e);
     response.status = 400;
   }
+}
+
+export const Me = async ({response, cookies}: RouterContext) => {
+  const jwtService = new JwtService();
+  const {id} = await jwtService.verify(cookies);
+
+  const userRepository = new UserRepository();
+  const {password, ...result}: any = await userRepository.findOne('id', id);
+
+  response.body = result;
 }
